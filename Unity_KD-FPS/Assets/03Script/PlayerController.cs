@@ -16,9 +16,13 @@ public class PlayerController : MonoBehaviour
     private float crouchSpeed;          // 앉을 때 속도
 
     // 상태 변수
+    private bool isWalk = false;
     private bool isRun = false;         // 뛰고 있는가?
     private bool isCrouch = false;      // 앉고 있는가?
     private bool isGround = true;       // 지면과 닿는가?
+
+    // 움직임 체크 변수
+    private Vector3 lastPos;
 
     // 앉았을 때 얼마나 앉을지 결정하는 변수.
     [SerializeField]
@@ -43,12 +47,14 @@ public class PlayerController : MonoBehaviour
     private Camera theCamera;
     private Rigidbody myRigid;
     private GunController theGunController;
+    private Crosshair theCrosshair;
     
     void Start()
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
         myRigid = GetComponent<Rigidbody>();
         theGunController = FindObjectOfType<GunController>();
+        theCrosshair = FindObjectOfType<Crosshair>();
 
         applySpeed = walkSpeed;
         originPosY = theCamera.transform.localPosition.y;
@@ -66,6 +72,10 @@ public class PlayerController : MonoBehaviour
         CharacterRotation();    // 카메라 상하 회전
     }
 
+    void FixedUpdate() {
+        MoveCheck();
+    }
+
     // 앉기 시도
     private void TryCrouch()
     {
@@ -78,6 +88,7 @@ public class PlayerController : MonoBehaviour
     private void Crouch()
     {
         isCrouch = !isCrouch;
+        theCrosshair.CrouchingAnimation(isCrouch);
 
         if (isCrouch){
             applySpeed = crouchSpeed;
@@ -112,6 +123,7 @@ public class PlayerController : MonoBehaviour
     private void IsGround()
     {
         isGround = Physics.Raycast(transform.position, Vector3.down, capsuleCollider.bounds.extents.y + 0.1f);
+        theCrosshair.RuningAnimation(!isGround);
     }
 
     // 점프 시도
@@ -151,6 +163,7 @@ public class PlayerController : MonoBehaviour
         theGunController.CancelFineSight(); // 정조준일 경우 해제
         
         isRun = true;
+        theCrosshair.RuningAnimation(isRun);
         applySpeed = runSpeed;
     }
 
@@ -158,6 +171,7 @@ public class PlayerController : MonoBehaviour
     private void RunningCancel()
     {
         isRun = false;
+        theCrosshair.RuningAnimation(isRun);
         applySpeed = walkSpeed;
     }
 
@@ -173,6 +187,24 @@ public class PlayerController : MonoBehaviour
         Vector3 _velocity = (_moveHorizontal + _moveVertical).normalized * applySpeed;
 
         myRigid.MovePosition(transform.position + _velocity * Time.deltaTime);
+    }
+
+    // 움직임 체크
+    private void MoveCheck()
+    {
+        bool moveCheck = Input.GetButton("Horizontal") || Input.GetButton("Vertical");
+        bool intervalPos = Vector3.Distance(lastPos, transform.position) >= 0.0001f;
+
+        if (!isRun && !isCrouch && isGround){
+            if (intervalPos || moveCheck)
+                isWalk = true;
+            else
+                isWalk = false;
+            
+            theCrosshair.WalkingAnimation(isWalk);
+            
+            lastPos = transform.position;
+        }
     }
 
     // 좌우 캐릭터 회전

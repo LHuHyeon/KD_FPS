@@ -31,8 +31,10 @@ public class GunController : MonoBehaviour
 
     [SerializeField]
     private GameObject hitEffectPrefab;
+    private Crosshair theCrosshair;
 
     void Start() {
+        theCrosshair = FindObjectOfType<Crosshair>();
         audioSource = GetComponent<AudioSource>();
         originPos = Vector3.zero;
     }
@@ -77,6 +79,7 @@ public class GunController : MonoBehaviour
     // 발사 후 계산
     private void Shoot()
     {
+        theCrosshair.FireAnimation();
         currentGun.currentBulletCount--;
         currentFireRate = currentGun.fireRate;
         PlaySE(currentGun.fire_Sound);
@@ -95,7 +98,11 @@ public class GunController : MonoBehaviour
     // 총에 맞은 객체 확인
     private void Hit()
     {
-        if (Physics.Raycast(theCam.transform.position, theCam.transform.forward, out hitInfo, currentGun.range)){
+        if (Physics.Raycast(theCam.transform.position, theCam.transform.forward + 
+            new Vector3(Random.Range(-theCrosshair.GetAccuracy() - currentGun.accuracy, theCrosshair.GetAccuracy() + currentGun.accuracy),
+                        Random.Range(-theCrosshair.GetAccuracy() - currentGun.accuracy, theCrosshair.GetAccuracy() + currentGun.accuracy),
+                        0f),
+            out hitInfo, currentGun.range)){
             // .point = 충돌한 곳에 실제 좌표를 반환한다.
             // .normal = 충돌한 객체의 표면을 반환한다.
             // Quaternion.LookRotation() 특정한 객체를 바라본다.
@@ -162,7 +169,8 @@ public class GunController : MonoBehaviour
     private void FineSight()
     {
         isFineSightMode = !isFineSightMode;
-        currentGun.anim.SetBool("FineSightMode", isFineSightMode);
+        currentGun.anim.SetBool("FineSightMode", isFineSightMode);  // 총 정조준 애니메이션
+        theCrosshair.FineSightAnimation(isFineSightMode);           // 크로스 헤어 애니메이션
 
         if (isFineSightMode){
             StopAllCoroutines();
@@ -242,5 +250,10 @@ public class GunController : MonoBehaviour
     public Gun GetGun()
     {
         return currentGun;
+    }
+
+    public bool GetFineSightMode()
+    {
+        return isFineSightMode;
     }
 }
