@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Crosshair : MonoBehaviour
 {
+    // 크로스 헤어 애니메이터
     [SerializeField]
     private Animator anim;
 
@@ -19,10 +20,17 @@ public class Crosshair : MonoBehaviour
 
     public void WalkingAnimation(bool _flag)
     {
+        WeaponManager.currentWeaponAnim.SetBool("Walk", _flag);
         anim.SetBool("Walking", _flag);
     }
 
     public void RuningAnimation(bool _flag)
+    {
+        WeaponManager.currentWeaponAnim.SetBool("Run", _flag);
+        anim.SetBool("Runing", _flag);
+    }
+
+    public void JumpingAnimation(bool _flag)
     {
         anim.SetBool("Runing", _flag);
     }
@@ -34,7 +42,7 @@ public class Crosshair : MonoBehaviour
 
     public void FineSightAnimation(bool _flag)
     {
-        anim.SetBool("FineSight", _flag);
+        anim.SetBool("FireSight", _flag);
     }
 
     public void FireAnimation()

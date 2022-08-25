@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 16146054}
   - component: {fileID: 16146055}
   - component: {fileID: 16146056}
+  - component: {fileID: 16146058}
   - component: {fileID: 16146057}
   m_Layer: 2
   m_Name: Holder
@@ -165,7 +166,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16146053}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d951c442aec8e8f4380c16f81ca1447e, type: 3}
   m_Name: 
@@ -282,6 +283,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &16146058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16146053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57fc81382a98c5242b07ad8106198ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeaponType: GUN
+  changeWeaponDelayTime: 0.1
+  changeWeaponEndDelayTime: 0.1
+  guns:
+  - {fileID: 994457774}
+  hands:
+  - {fileID: 296999582797385155}
+  theGunController: {fileID: 16146056}
+  theHandController: {fileID: 16146055}
 --- !u!1 &77205777
 GameObject:
   m_ObjectHideFlags: 0
@@ -10877,7 +10899,7 @@ MonoBehaviour:
   carryBulletCount: 150
   retroActionForce: 0.3
   retroActionFineSightForce: 0.7
-  fineSightOriginPos: {x: 0.55, y: 0.335, z: -0.586}
+  fineSightOriginPos: {x: 0.55, y: 0.32, z: -0.583}
   anim: {fileID: 994457775}
   muzzleFlash: {fileID: 178058237}
   fire_Sound: {fileID: 8300000, guid: 109e5e7c8e219d84f93a8e93e26c5ec6, type: 3}
@@ -10915,7 +10937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1023945567
 Transform:
   m_ObjectHideFlags: 0
@@ -12033,6 +12055,10 @@ PrefabInstance:
     - target: {fileID: 7861792979732188720, guid: f63a8d09f964c1448b983d0c46da0b42, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861792979732188720, guid: f63a8d09f964c1448b983d0c46da0b42, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7945608412514080333, guid: f63a8d09f964c1448b983d0c46da0b42, type: 3}
       propertyPath: m_Layer
