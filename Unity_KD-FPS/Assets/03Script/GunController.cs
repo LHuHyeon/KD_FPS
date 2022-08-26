@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    public static bool isActivate = true;
+    public static bool isActivate = false;
 
     // 현재 장착된 총
     [SerializeField]
@@ -40,8 +40,7 @@ public class GunController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         originPos = Vector3.zero;
 
-        WeaponManager.currentWeapon = currentGun.GetComponent<Transform>();
-        WeaponManager.currentWeaponAnim = currentGun.anim;
+
     }
 
     void Update()
