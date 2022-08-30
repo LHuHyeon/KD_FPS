@@ -42,6 +42,7 @@
      <Compile Include="Assets\03Script\SoundManager.cs" />
      <Compile Include="Assets\03Script\Weapon\WeaponSway.cs" />
      <Compile Include="Assets\03Script\UI\HUD.cs" />
+     <Compile Include="Assets\03Script\UI\StatusController.cs" />
      <Compile Include="Assets\03Script\HandController.cs" />
      <Compile Include="Assets\03Script\Weapon\CloseWeapon.cs" />
      <Compile Include="Assets\03Script\Rock.cs" />
@@ -50,7 +51,9 @@
      <Compile Include="Assets\03Script\UI\Crosshair.cs" />
      <Compile Include="Assets\03Script\Weapon\WeaponManager.cs" />
      <Compile Include="Assets\03Script\PlayerController.cs" />
-     <Compile Include="Assets\03Script\UI\StatusController.cs" />
+     <Compile Include="Assets\03Script\UI\Item.cs" />
+     <Compile Include="Assets\03Script\ItemPickUp.cs" />
+     <Compile Include="Assets\03Script\ActionController.cs" />
      <None Include="Assets\Water Shader\Water_Shader.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.29f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
