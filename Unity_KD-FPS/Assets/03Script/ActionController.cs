@@ -19,6 +19,8 @@ public class ActionController : MonoBehaviour
     // 필요한 컴포넌트
     [SerializeField]
     private Text actionText;
+    [SerializeField]
+    private Inventory theInventory;
 
     void Update()
     {
@@ -43,6 +45,7 @@ public class ActionController : MonoBehaviour
             // 아이템이 존재할 때
             if (hitInfo.transform != null){
                 Debug.Log(hitInfo.transform.GetComponent<ItemPickUp>().item.itmeName + " 흭득 ");
+                theInventory.AcquireItem(hitInfo.transform.GetComponent<ItemPickUp>().item);
                 Destroy(hitInfo.transform.gameObject);
                 InfoDisappear();
             }
