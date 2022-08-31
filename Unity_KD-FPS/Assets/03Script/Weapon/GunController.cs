@@ -45,12 +45,15 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
-        if (isActivate){
-            GunFireRateCalc();
-            TryFire();
-            TryReload();
-            TryFineSight();
+        if (!Inventory.inventoryActivated){
+            if (isActivate){
+                GunFireRateCalc();
+                TryFire();
+                TryReload();
+                TryFineSight();
+            }
         }
+        
     }
 
     // 연사속도 재계산

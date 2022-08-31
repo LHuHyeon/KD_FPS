@@ -70,8 +70,10 @@ public class PlayerController : MonoBehaviour
         TryRun();               // 뛰기
         TryCrouch();            // 앉기
         Move();                 // 움직이기
-        CameraRotation();       // 캐릭터 좌우 회전
-        CharacterRotation();    // 카메라 상하 회전
+        if (!Inventory.inventoryActivated){
+            CameraRotation();       // 캐릭터 좌우 회전
+            CharacterRotation();    // 카메라 상하 회전
+        }
     }
 
     void FixedUpdate() {
