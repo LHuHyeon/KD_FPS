@@ -16,10 +16,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     [SerializeField]
     private GameObject go_CountImage;
 
-    private WeaponManager theWeaponManager;
+    private ItemEffectDatabase theItemEffectDatabase;
 
     void Start() {
-        theWeaponManager = FindObjectOfType<WeaponManager>();
+        theItemEffectDatabase = FindObjectOfType<ItemEffectDatabase>();
     }
 
     // 이미지의 투명도 조절
@@ -72,23 +72,21 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         go_CountImage.SetActive(false);
     }
 
+    // 커서에 있는 오브젝트 클릭 이벤트 메소드
     public void OnPointerClick(PointerEventData eventData)
     {
+        // 오른쪽 클릭을 했을 때
         if (eventData.button == PointerEventData.InputButton.Right){
             if (item != null){
-                if (Item.ItemType.Equipment == item.itemType){
-                    // 장착
-                    StartCoroutine(theWeaponManager.ChangeWeaponCoroutine(item.weaponType, item.itmeName));
-                }
-                else{
-                    // 소모
-                    Debug.Log(item.itmeName + "을 사용하였습니다.");
+                theItemEffectDatabase.UseItem(item);
+                
+                if (item.itemType == Item.ItemType.Used)
                     SetSlotCount(-1);
-                }
             }
         }
     }
 
+    // 마우스 클릭 했을 때
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (item != null){
@@ -99,6 +97,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         }
     }
 
+    // 마우스 클릭 중일 때
     public void OnDrag(PointerEventData eventData)
     {
         if (item != null){
@@ -106,12 +105,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         }
     }
 
+    // 마우스 클릭 땠을 때
     public void OnEndDrag(PointerEventData eventData)
     {
         DragSlot.instance.SetColor(0);
         DragSlot.instance.dragSlot = null;
     }
 
+    // 마우스 클릭 땠을 때 (마우스 커서를 누르고 있다가 땐 위치의 오브젝트)
     public void OnDrop(PointerEventData eventData)
     {
         if (DragSlot.instance.dragSlot != null)

@@ -159,4 +159,49 @@ public class StatusController : MonoBehaviour
         else
             return false;
     }
+
+    public void IncreaseHP(int _num)
+    {
+        currentHp += _num;
+
+        if (currentHp >= hp){
+            currentHp = hp;
+        }
+    }
+
+    public void IncreaseSP(int _num)
+    {
+        currentSp += _num;
+        
+        if (currentSp >= sp){
+            currentSp = sp;
+        }
+    }
+
+    public void IncreaseDP(int _num)
+    {
+        currentDp += _num;
+        
+        if (currentDp >= dp){
+            currentDp = dp;
+        }
+    }
+
+    public void IncreaseHUNGRY(int _num)
+    {
+        currentHungry += _num;
+        
+        if (currentHungry >= hungry){
+            currentHungry = hungry;
+        }
+    }
+
+    public void IncreaseTHIRSTY(int _num)
+    {
+        currentThirsty += _num;
+        
+        if (currentThirsty >= thirsty){
+            currentThirsty = thirsty;
+        }
+    }
 }
