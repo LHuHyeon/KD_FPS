@@ -11,6 +11,8 @@ public class Inventory : MonoBehaviour
     private GameObject go_InventoryBase;
     [SerializeField]
     private GameObject go_SlotParent;
+    [SerializeField]
+    private ItemEffectDatabase theItemEffectDatabase;
 
     // 슬롯들
     private Slot[] slots;
@@ -45,6 +47,7 @@ public class Inventory : MonoBehaviour
     private void CloseInventory()
     {
         go_InventoryBase.SetActive(false);
+        theItemEffectDatabase.HideToolTip();    // 아이템 툴팁 끄기
     }
 
     public void AcquireItem(Item _item, int _count = 1)

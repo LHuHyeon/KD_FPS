@@ -9,6 +9,8 @@ public class Item : ScriptableObject
     // Sprite class : World 상에서 image 출력 가능.
 
     public string itmeName;         // 아이템의 이름
+    [TextArea]
+    public string itemDesc;         // 아이템의 설명
     public ItemType itemType;       // 아이템의 유형
     public Sprite itmeImage;        // 아이템의 이미지
     public GameObject itemPrefab;   // 아이템의 프리팹
