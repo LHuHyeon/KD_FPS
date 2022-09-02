@@ -40,8 +40,12 @@ public class SoundManager : MonoBehaviour
     public void PlaySE(string _name)
     {
         for (int i = 0; i < effectSounds.Length; i++){
+
+            // 호출된 사운드 이름이 존재하는지 확인
             if (_name == effectSounds[i].name){
                 for (int j = 0; j < audioSourceEffect.Length; j++){
+
+                    // 호출되지 않은 사운드 찾기
                     if (!audioSourceEffect[j].isPlaying){
                         playSoundName[j] = effectSounds[i].name;
                         audioSourceEffect[j].clip = effectSounds[i].clip;
