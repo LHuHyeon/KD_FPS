@@ -133,7 +133,7 @@ public class Pig : MonoBehaviour
     }
 
     // 뛰기 (피격 될때만)
-    private void Run(Vector3 _targetPos)
+    public void Run(Vector3 _targetPos)
     {
         direction = Quaternion.LookRotation(transform.position - _targetPos).eulerAngles;
 

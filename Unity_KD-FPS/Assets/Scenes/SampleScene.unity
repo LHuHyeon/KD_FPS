@@ -6082,7 +6082,7 @@ GameObject:
   - component: {fileID: 572478656}
   - component: {fileID: 572478655}
   - component: {fileID: 572478654}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12272,7 +12272,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 439
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -14184,6 +14184,7 @@ GameObject:
   - component: {fileID: 1447853831}
   - component: {fileID: 1447853834}
   - component: {fileID: 1447853835}
+  - component: {fileID: 1447853836}
   m_Layer: 0
   m_Name: Pig
   m_TagString: NPC
@@ -14228,7 +14229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447853830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.89, y: 0.02, z: 23.69}
+  m_LocalPosition: {x: 9.27, y: 0.02, z: 21.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1584783332}
@@ -14368,6 +14369,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1447853836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447853830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186d77e7448a12d4c93a38c2ded63994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewAngle: 130
+  viewDisatance: 10
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1530223466
 GameObject:
   m_ObjectHideFlags: 0
