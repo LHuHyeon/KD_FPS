@@ -7,9 +7,9 @@ public class WeakAnimal : Animal
     // 뛰기 (피격 될때만)
     public void Run(Vector3 _targetPos)
     {
-        direction = Quaternion.LookRotation(transform.position - _targetPos).eulerAngles;
+        destination = new Vector3(transform.position.x - _targetPos.x, 0f, transform.position.z - _targetPos.z).normalized;
 
-        applySpeed = runSpeed;
+        nav.speed = runSpeed;
         currentTime = runTime;
         isWalking = false;
         isRunning = true;
