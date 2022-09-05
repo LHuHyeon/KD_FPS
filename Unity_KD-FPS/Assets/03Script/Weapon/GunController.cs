@@ -120,6 +120,7 @@ public class GunController : MonoBehaviour
             // Quaternion.LookRotation() 특정한 객체를 바라본다.
             // var = 반환되는 타입을 모를때 쓴다.
             GameObject clone = Instantiate(hitEffectPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+            hitInfo.transform.GetComponent<Animal>().Damage(1, transform.position);
             Destroy(clone, 1f);
         }
     }
