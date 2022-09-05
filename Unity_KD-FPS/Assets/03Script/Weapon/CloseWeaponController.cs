@@ -15,6 +15,9 @@ public abstract class CloseWeaponController : MonoBehaviour
 
     protected RaycastHit hitInfo;
 
+    [SerializeField]
+    protected LayerMask layerMask;
+
     // 공격 여부 확인
     protected void TryAttack()
     {
@@ -56,7 +59,7 @@ public abstract class CloseWeaponController : MonoBehaviour
     // Raycast를 통한 피격 확인
     protected bool CheckObject()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, currentCloseWeapon.range)){
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, currentCloseWeapon.range, layerMask)){
             return true;
         }
         return false;

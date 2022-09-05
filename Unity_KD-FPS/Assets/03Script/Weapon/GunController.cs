@@ -27,6 +27,9 @@ public class GunController : MonoBehaviour
     // 레이저 충돌 정보 받아옴.
     private RaycastHit hitInfo;
 
+    [SerializeField]
+    private LayerMask layerMask;
+
     // 필요한 컴포넌트
     [SerializeField]
     private Camera theCam;
@@ -111,7 +114,7 @@ public class GunController : MonoBehaviour
             new Vector3(Random.Range(-theCrosshair.GetAccuracy() - currentGun.accuracy, theCrosshair.GetAccuracy() + currentGun.accuracy),
                         Random.Range(-theCrosshair.GetAccuracy() - currentGun.accuracy, theCrosshair.GetAccuracy() + currentGun.accuracy),
                         0f),
-            out hitInfo, currentGun.range)){
+            out hitInfo, currentGun.range, layerMask)){
             // .point = 충돌한 곳에 실제 좌표를 반환한다.
             // .normal = 충돌한 객체의 표면을 반환한다.
             // Quaternion.LookRotation() 특정한 객체를 바라본다.
