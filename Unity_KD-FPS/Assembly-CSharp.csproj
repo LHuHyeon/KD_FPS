@@ -60,10 +60,11 @@
      <Compile Include="Assets\03Script\Weapon\AxeController.cs" />
      <Compile Include="Assets\03Script\Weapon\Gun.cs" />
      <Compile Include="Assets\03Script\UI\Crosshair.cs" />
+     <Compile Include="Assets\03Script\UI\CraftManual.cs" />
      <Compile Include="Assets\03Script\Weapon\WeaponManager.cs" />
      <Compile Include="Assets\03Script\NPC\WeakAnimal.cs" />
      <Compile Include="Assets\03Script\PlayerController.cs" />
-     <Compile Include="Assets\03Script\UI\CraftManual.cs" />
+     <Compile Include="Assets\03Script\PreviewObject.cs" />
      <None Include="Assets\Water Shader\Water_Shader.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.29f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

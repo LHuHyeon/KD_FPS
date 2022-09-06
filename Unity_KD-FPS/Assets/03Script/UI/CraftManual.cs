@@ -68,7 +68,7 @@ public class CraftManual : MonoBehaviour
     // 프리뷰 위치에 프리팹 생성
     private void Build()
     {
-        if (isPreviewActivated){
+        if (isPreviewActivated && go_Preview.GetComponent<PreviewObject>().isBuildable()){
             Instantiate(go_Prefab, hitInfo.point, Quaternion.identity);
             Destroy(go_Preview);
             isActivated = false;
