@@ -183,7 +183,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 130
+  controlID: 138
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 15800
+  m_LastSelectedObjectID: 15924
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -551,7 +551,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 180
+  m_LastVerticalScrollValue: 52.799988
   m_GlobalObjectId: 
   m_LockTracker:
     m_IsLocked: 0
@@ -594,22 +594,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/01Prefab/Building
+    - Assets/03Script
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/01Prefab/Building
+  - Assets/03Script
   m_LastFoldersGridSize: 96
   m_LastProjectPath: "C:\\Users\\82103\\OneDrive\\\uBB38\uC11C\\KD_FPS\\Unity_KD-FPS"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 0ea40000
-    m_LastClickedID: 41998
-    m_ExpandedIDs: 000000008c4800008e48000090480000b0a30000c4a3000000ca9a3b
+    m_SelectedIDs: b6480000
+    m_LastClickedID: 18614
+    m_ExpandedIDs: 0000000094480000964800009848000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -637,7 +637,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008c4800008e48000090480000
+    m_ExpandedIDs: 00000000944800009648000098480000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -681,7 +681,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 2}
+      m_ClientGUIView: {fileID: 4}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -689,7 +689,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 96.5}
     m_GridSize: 96
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 201.79999
@@ -818,9 +818,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.4646697, y: 0.78903335, z: 23.950905}
+    m_Target: {x: 9.408603, y: 3.9751506, z: 23.806421}
     speed: 2
-    m_Value: {x: 7.4646697, y: 0.78903335, z: 23.950905}
+    m_Value: {x: 9.408603, y: 3.9751506, z: 23.806421}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -867,13 +867,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.09346103, y: 0.113892965, z: -0.010721035, w: -0.98909986}
+    m_Target: {x: 0.011563088, y: -0.93690413, z: -0.031216852, w: -0.34820738}
     speed: 2
-    m_Value: {x: -0.09345449, y: 0.11388499, z: -0.010720286, w: -0.98903066}
+    m_Value: {x: 0.011084794, y: -0.9363583, z: -0.029792642, w: -0.34960386}
   m_Size:
-    m_Target: 1.2840014
+    m_Target: 2.8070946
     speed: 2
-    m_Value: 1.2840014
+    m_Value: 2.8070946
   m_Ortho:
     m_Target: 0
     speed: 2
