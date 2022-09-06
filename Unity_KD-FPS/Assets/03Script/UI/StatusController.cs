@@ -169,6 +169,19 @@ public class StatusController : MonoBehaviour
         }
     }
 
+    public void DecreaseHP(int _num)
+    {
+        if (currentDp > 0)
+            DecreaseDP(_num);
+        else
+            currentHp -= _num;
+
+        if (currentHp <= 0){
+            // Dead 관련 코드
+            Debug.Log("체력 : " + currentHp);
+        }
+    }
+
     public void IncreaseSP(int _num)
     {
         currentSp += _num;
@@ -184,6 +197,16 @@ public class StatusController : MonoBehaviour
         
         if (currentDp >= dp){
             currentDp = dp;
+        }
+    }
+
+    public void DecreaseDP(int _num)
+    {
+        currentDp -= _num;
+
+        if (currentDp <= 0){
+            currentHp -= currentDp;
+            currentDp = 0;
         }
     }
 

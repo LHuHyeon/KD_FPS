@@ -50,7 +50,6 @@ public class FieldOfViewAngle : MonoBehaviour
 
                 // 현 객체의 forward를 기준으로 _direction 위치와의 각을 구함.
                 float _angle = Vector3.Angle(_direction, transform.forward);
-                Debug.Log("angle : " + _angle);
 
                 // 구해진 각과 (viewAngle(130)/2)=65 값을 비교.
                 if (_angle < viewAngle * 0.5f){
