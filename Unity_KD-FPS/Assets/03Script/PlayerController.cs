@@ -65,12 +65,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        IsGround();             // 지면 체크
-        TryJump();              // 점프
-        TryRun();               // 뛰기
-        TryCrouch();            // 앉기
-        Move();                 // 움직이기
-        if (!Inventory.inventoryActivated){
+        if (GameManager.canPlayerMove){
+            IsGround();             // 지면 체크
+            TryJump();              // 점프
+            TryRun();               // 뛰기
+            TryCrouch();            // 앉기
+            Move();                 // 움직이기
             CameraRotation();       // 캐릭터 좌우 회전
             CharacterRotation();    // 카메라 상하 회전
         }
