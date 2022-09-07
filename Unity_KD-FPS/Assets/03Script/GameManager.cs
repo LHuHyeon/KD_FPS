@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static bool canPlayerMove = true;
     public static bool isOpenInventory = false;
     public static bool isOpenCraftManual = false;
+    public static bool isNight = false;
+    public static bool isWater = false;
 
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
