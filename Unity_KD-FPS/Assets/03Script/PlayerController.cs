@@ -9,11 +9,18 @@ public class PlayerController : MonoBehaviour
     private float walkSpeed;            // 걷기 속도
     [SerializeField]
     private float runSpeed;             // 달리기 속도
-    private float applySpeed;           // 현재 속도
-    [SerializeField]
-    private float jumpForce;            // 점프할 높이
     [SerializeField]
     private float crouchSpeed;          // 앉을 때 속도
+    [SerializeField]
+    private float swimSpeed;
+    [SerializeField]
+    private float swimFastSpeed;
+    [SerializeField]
+    private float upSwimSpeed;
+    private float applySpeed;           // 현재 속도
+
+    [SerializeField]
+    private float jumpForce;            // 점프할 높이
 
     // 상태 변수
     private bool isWalk = false;
@@ -68,12 +75,26 @@ public class PlayerController : MonoBehaviour
         if (GameManager.canPlayerMove){
             IsGround();             // 지면 체크
             TryJump();              // 점프
-            TryRun();               // 뛰기
             TryCrouch();            // 앉기
             Move();                 // 움직이기
             CameraRotation();       // 캐릭터 좌우 회전
             CharacterRotation();    // 카메라 상하 회전
+
+            if (!GameManager.isWater){
+                TryRun();               // 뛰기
+            }
+            else{
+                WaterCheck();           // 물 속에서 뛰기
+            }
         }
+    }
+
+    private void WaterCheck()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+            applySpeed = swimFastSpeed;
+        else
+            applySpeed = swimSpeed;
     }
 
     void FixedUpdate() {
@@ -133,9 +154,15 @@ public class PlayerController : MonoBehaviour
     // 점프 시도
     private void TryJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround && theStatusController.GetStamina()){
+        if (Input.GetKeyDown(KeyCode.Space) && isGround && theStatusController.GetStamina() && !GameManager.isWater)
             Jump();
-        }
+        else if (Input.GetKey(KeyCode.Space) && GameManager.isWater)
+            UpSwim();
+    }
+
+    private void UpSwim()
+    {
+        myRigid.velocity = transform.up * upSwimSpeed;
     }
 
     // 점프 동작
