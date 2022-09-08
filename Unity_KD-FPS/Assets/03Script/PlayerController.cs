@@ -198,7 +198,7 @@ public class PlayerController : MonoBehaviour
             Crouch();
         
         theGunController.CancelFineSight(); // 정조준일 경우 해제
-        
+    
         isRun = true;
         theCrosshair.RuningAnimation(isRun);
         theStatusController.DecreaseStamina(5);

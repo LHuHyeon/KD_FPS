@@ -17,6 +17,8 @@ public class GunController : MonoBehaviour
     private bool isReload;
     [HideInInspector]
     private bool isFineSightMode = false;
+
+    public bool isShoot = false;
     
     // 원래 포지션 값
     private Vector3 originPos;  // 기본 0 0 0 값
@@ -71,8 +73,11 @@ public class GunController : MonoBehaviour
     private void TryFire()
     {
         if (Input.GetButton("Fire1") && currentFireRate <= 0f && !isReload){
+            isShoot = true;
             Fire();
         }
+        else
+            isShoot = false;
     }
 
     // 발사 전 계산
@@ -120,7 +125,8 @@ public class GunController : MonoBehaviour
             // Quaternion.LookRotation() 특정한 객체를 바라본다.
             // var = 반환되는 타입을 모를때 쓴다.
             GameObject clone = Instantiate(hitEffectPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
-            hitInfo.transform.GetComponent<Animal>().Damage(1, transform.position);
+            if (hitInfo.transform.CompareTag("WeakAnimal"))
+                hitInfo.transform.GetComponent<WeakAnimal>().Damage(1, transform.position);
             Destroy(clone, 1f);
         }
     }
