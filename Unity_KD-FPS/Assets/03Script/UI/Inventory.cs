@@ -17,6 +17,20 @@ public class Inventory : MonoBehaviour
     // 슬롯들
     private Slot[] slots;
 
+    public Slot[] GetSlots() { return slots; }  // 현재 인벤토리의 슬롯들을 전체 반환 시켜줄 메소드
+
+    [SerializeField] private Item[] items;      // 게임에 존재하는 아이템
+
+    // 세이브 로드 시 사용하게될 메소드
+    public void LoadToInven(int _arrayNum, string _itemName, int _itemNum)
+    {
+        for (int i = 0; i < items.Length; i++){
+            if (items[i].itmeName == _itemName){
+                slots[_arrayNum].AddItem(items[i], _itemNum);
+            }
+        }
+    }
+
     void Start()
     {
         slots = go_SlotParent.GetComponentsInChildren<Slot>();

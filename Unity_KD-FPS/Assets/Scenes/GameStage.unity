@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGun: {fileID: 994457774}
+  isShoot: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 1267
@@ -7711,6 +7712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_BaseUI: {fileID: 890685192}
+  theSaveNLoad: {fileID: 1434139126}
 --- !u!1 &661606525
 GameObject:
   m_ObjectHideFlags: 0
@@ -15177,6 +15179,10 @@ MonoBehaviour:
   go_InventoryBase: {fileID: 1433009742}
   go_SlotParent: {fileID: 1852674199}
   theItemEffectDatabase: {fileID: 533370008}
+  items:
+  - {fileID: 11400000, guid: c749527a9421c714888cd2f26814df53, type: 2}
+  - {fileID: 11400000, guid: fee98bd9a2ff1a84c8af8f7dce7ac785, type: 2}
+  - {fileID: 11400000, guid: 694358707ee9de24d97998bc5458ba81, type: 2}
 --- !u!1 &1254490173
 GameObject:
   m_ObjectHideFlags: 0
@@ -15849,6 +15855,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434139125}
   - component: {fileID: 1434139124}
+  - component: {fileID: 1434139126}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -15882,6 +15889,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1434139126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434139123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117129905f01ba342a155f14cb4e37d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1437471801
 PrefabInstance:
   m_ObjectHideFlags: 0
